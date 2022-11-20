@@ -7,6 +7,7 @@ add_newline = true
 format = """\
 [╭╴](238)$env_var\
 $all[╰─](238)$character"""
+scan_timeout = 10
 
 # Change the default prompt characters
 [character]
@@ -24,7 +25,7 @@ disabled = false
 style_user = "white bold"
 style_root = "black bold"
 format = "[$user]($style) "
-disabled = false  # disable in powershell
+disabled = false
 show_always = false
 
 [directory]
@@ -59,9 +60,11 @@ deleted = " "
 
 [terraform]
 format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+disabled = true
 
 [vagrant]
 format = "via [ vagrant $version]($style) "
+disabled = true
 
 [docker_context]
 format = "via [ $context](bold blue) "
@@ -79,6 +82,7 @@ disabled = false
 
 [ruby]
 format = "via [ $version]($style) "
+disabled = true
 
 [cmake]
 symbol = ""
@@ -87,13 +91,14 @@ symbol = ""
 full_symbol = "🔋 "
 charging_symbol = "⚡️ "
 discharging_symbol = "💀 "
+disabled = false
 
 [[battery.display]] # "bold red" style and discharging_symbol when capacity is between 0% and 10%
 threshold = 10
 style = "bold red"
 
 [[battery.display]] # "bold yellow" style and 💦 symbol when capacity is between 10% and 30%
-threshold = 30
+threshold = 50
 style = "bold yellow"
 discharging_symbol = "💦"
 
